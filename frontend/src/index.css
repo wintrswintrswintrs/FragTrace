@@ -1,0 +1,87 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap');
+
+:root {
+  --bg: #0a0d0b;
+  --panel: #12150f;
+  --panel-raised: #181c14;
+  --line: #2a2f24;
+  --text: #e8e6dd;
+  --text-dim: #8a9080;
+  --text-faint: #565d4f;
+
+  --t-orange: #f0680f;
+  --t-orange-dim: #6b3812;
+  --ct-blue: #5b9bd1;
+  --ct-blue-dim: #2c4256;
+
+  --green: #3ddc84;
+  --red: #e5484d;
+  --gold: #e6c34d;
+
+  --mono: 'JetBrains Mono', 'SF Mono', monospace;
+  --sans: 'Inter', system-ui, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body, #root {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--sans);
+  min-height: 100vh;
+}
+
+body {
+  background-image:
+    radial-gradient(circle at 15% 0%, rgba(240, 104, 15, 0.05), transparent 40%),
+    radial-gradient(circle at 85% 0%, rgba(91, 155, 209, 0.05), transparent 40%);
+}
+
+::selection {
+  background: var(--t-orange);
+  color: #0a0d0b;
+}
+
+button {
+  font-family: var(--sans);
+  cursor: pointer;
+}
+
+a {
+  color: inherit;
+}
+
+/* Angular "HUD panel" utility: clipped corners instead of rounded ones,
+   matching CS2's own UI chrome vocabulary. */
+.hud-panel {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  clip-path: polygon(
+    12px 0%, 100% 0%, 100% calc(100% - 12px), calc(100% - 12px) 100%, 0% 100%, 0% 12px
+  );
+}
+
+.mono {
+  font-family: var(--mono);
+}
+
+.scrollbar-thin::-webkit-scrollbar {
+  width: 6px;
+}
+.scrollbar-thin::-webkit-scrollbar-thumb {
+  background: var(--line);
+}
+.scrollbar-thin::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+  }
+}
